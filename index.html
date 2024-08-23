@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crocgame</title>
+    <style>
+        .inputbox {
+            width: 25px;
+            text-align: center;
+        }
+
+        .game {
+            display: flex;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .num {
+            margin: 5px;
+        }
+
+        #score {
+            display: flex;
+            border: 2px solid black;
+            width: 100px;
+        }
+
+        img {
+            height: 300px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>Crocgame</h2>
+    <div id="croc">
+        <img src="Img/croc.png" />
+    </div>
+
+    <div id="score">
+        <div>Poeng:</div>
+        <div id="points">0</div>
+    </div>
+
+    <div class="game">
+        <div class="num" id="num1"></div>
+        <input type="text" class="inputbox" id="inputbox"></input>
+        <div class="num" id="num2"></div>
+    </div>
+
+    <div>
+        <button id="submitbt" onclick="checkanswer()">Submit</button>
+        <button onclick="Numrng(), enablebutton()">Reset</button>
+    </div>
+
+    <button onclick="disablebutton()">mix</button>
+    <script>
+        let num1 = 0
+        let num2 = 0
+
+        let random1 = document.getElementById('num1')
+        let random2 = document.getElementById('num2')
+
+        let points = 0
+
+        let input = document.getElementById('inputbox')
+
+
+
+        Numrng()
+
+        function Numrng() {
+            num1 = Math.floor(Math.random() * 10);
+            num2 = Math.floor(Math.random() * 10);
+            random1.innerHTML = num1     /*rng i nummer 1*/
+            random2.innerHTML = num2 /*rng i nummer 2*/
+
+        }
+
+        function checkanswer() {
+
+            document.getElementById('submitbt').disabled = true
+
+            if (input.value == '<' && num1 < num2) {
+                correct()
+            }
+            else if (input.value == '=' && num1 == num2) {
+                correct()
+            }
+            else if (input.value == '>' && num1 > num2) {
+                correct()
+            }
+            else {
+                wrong()
+            }
+
+        }
+
+        function enablebutton() {
+            document.getElementById('submitbt').disabled = false
+        }
+
+
+        function correct() {
+            document.getElementById('points').innerHTML = points + 1;
+            points++
+        }
+        function wrong() {
+            document.getElementById('points').innerHTML = points - 1;
+            points--
+
+        }
+
+
+    </script>
+</body>
+
+</html>
