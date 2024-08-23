@@ -30,6 +30,11 @@
         img {
             height: 300px;
         }
+        #victorytekst{
+            color: blue;
+            font-size: x-large;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+        }
     </style>
 
 </head>
@@ -41,6 +46,7 @@
     </div>
     <br>
 
+    <div id="victorytekst"></div>
     <p>Skriv inn symbolene <, = eller > riktig inn tekstboksen under for å få poeng.</p>
 
     <div id="score">
@@ -98,7 +104,7 @@
             else {
                 wrong()
             }
-
+            victory()
         }
 
         function enablebutton() {
@@ -116,6 +122,16 @@
 
         }
 
+        function victory(){
+            if(points == 1){
+                document.getElementById('croc').innerHTML = /*HTML*/`
+                <div id="croc">
+                <img src="Img/victorycroc.png" />
+                </div>`;
+                document.getElementById('victorytekst').innerHTML = /*HTML*/`
+                <div id="victorytekst">GRATULERER DU HAR VUNNET!!</div>`;
+            }
+        }
 
     </script>
 </body>
