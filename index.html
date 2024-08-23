@@ -47,7 +47,8 @@
     <br>
 
     <div id="victorytekst"></div>
-    <p>Skriv inn symbolene <, = eller > riktig inn tekstboksen under for å få poeng.</p>
+    <p>Skriv inn symbolene <, = eller > riktig inn tekstboksen under for å få poeng. <br> 
+        Klarer du å få 10?</p>
 
     <div id="score">
         <div>Poeng:</div>
@@ -123,7 +124,7 @@
         }
 
         function victory(){
-            if(points == 1){
+            if(points == 10){
                 document.getElementById('croc').innerHTML = /*HTML*/`
                 <div id="croc">
                 <img src="Img/victorycroc.png" />
